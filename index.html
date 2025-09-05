@@ -20,26 +20,15 @@
             background-color: #f7fafc;
         }
 
-        /* Here is the style for the animated background design. */
+        /* Here is the new style for the animated star background design. */
         .bg-hero {
             position: relative;
-            background-color: #4f46e5; /* A fallback color */
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%235f52f3' fill-opacity='0.4'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v-1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1z'/%3E%3Cpath opacity='.5' d='M8 24h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1z'/%3E%3Cpath opacity='.5' d='M8 24h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            animation: pulse 4s infinite ease-in-out;
+            background: #111; /* A dark background for the stars */
+            overflow: hidden; /* This hides any stars that move outside the header */
         }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-        
+        /* We create a 'star' effect using multiple layers of CSS gradients. */
+        .bg-hero::before,
         .bg-hero::after {
             content: '';
             position: absolute;
@@ -47,8 +36,33 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(30, 64, 175, 0.4); /* This creates a semi-transparent blue overlay */
-            z-index: -1;
+            background: 
+                radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50px 10px, #ddd, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 80px 90px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 90px 40px, #eee, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 100px 100px; /* Controls the density of the stars */
+            opacity: 0.6;
+            animation: moveStars 60s linear infinite; /* Animates the stars */
+        }
+
+        /* The ::after pseudo-element creates a second, slightly different layer of stars. */
+        .bg-hero::after {
+            background-size: 150px 150px;
+            animation: moveStars 120s linear infinite; /* A slower animation for a layered effect */
+            opacity: 0.3;
+        }
+        
+        /* The keyframes for the star animation. */
+        @keyframes moveStars {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 100% 100%;
+            }
         }
     </style>
 </head>
