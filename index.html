@@ -6,49 +6,84 @@
     <title>Uma Social Media Ads</title>
     
     <!-- We are including Tailwind CSS directly from a CDN (Content Delivery Network). -->
-    <!-- This allows us to use special classes for styling without writing our own CSS. -->
+    <!-- This allows us to use special classes like "bg-blue-500" for styling without writing our own CSS. -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- We're also using the Inter font for a clean, modern look. -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- A small custom style block to set the font and add a smooth scroll effect. -->
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
+        /* This is a simple custom style block for the body. */
+        /* It sets the font family for the entire page. */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f7fafc;
+        }
+
+        /* Here is the style for the animated background design. */
+        .bg-hero {
+            position: relative;
+            background-color: #4f46e5; /* A fallback color */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%235f52f3' fill-opacity='0.4'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v-1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1zm-9 1h10v-1h-10v1z'/%3E%3Cpath opacity='.5' d='M8 24h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1z'/%3E%3Cpath opacity='.5' d='M8 24h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1zm-7 1h15v-1h-15v1z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .bg-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(30, 64, 175, 0.4); /* This creates a semi-transparent blue overlay */
+            z-index: -1;
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Hero Section -->
-    <header class="bg-gradient-to-r from-teal-500 to-green-600 text-white py-20 px-4">
-        <div class="container mx-auto text-center">
+    <!-- This is the main header section of the website. It's the first thing people see. -->
+    <header class="bg-hero text-white py-16 px-4 relative z-0">
+        <!-- The container class centers the content and adds margin. -->
+        <div class="container mx-auto text-center relative z-10">
+            <!-- The h1 tag is for the main title of the page. -->
             <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4">
                 Uma Social Media Ads
             </h1>
+            <!-- The p tag is a paragraph. -->
             <p class="text-lg sm:text-xl font-light mb-8 max-w-2xl mx-auto">
                 Boost your brand, engage your audience, and drive real results with expert social media advertising.
             </p>
-            <a href="#services" class="bg-white text-teal-600 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-gray-100 transition duration-300 transform hover:-translate-y-1">
+            <!-- The a tag is a link. The href="#services" links to the section with the "services" id below. -->
+            <a href="#services" class="bg-white text-blue-600 px-6 py-3 rounded-full font-bold text-lg shadow-lg hover:bg-gray-100 transition duration-300">
                 See Our Services
             </a>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 px-4 bg-white relative overflow-hidden">
+    <!-- This is the "About" section. The id="about" allows us to link to it directly. -->
+    <section id="about" class="py-16 px-4 bg-white">
         <div class="container mx-auto max-w-4xl">
+            <!-- The h2 tag is a sub-heading for this section. -->
             <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-8">
                 About Uma Social Media Ads
             </h2>
             <div class="prose text-center text-gray-600 mx-auto">
+                <!-- A series of p tags for the text content. -->
                 <p class="mb-4">
-                    My name is jajala srinivasa rao, and I specialize in creating and managing effective social media advertising campaigns. My mission is to help small businesses and creators like you unlock the full potential of platforms like Facebook, Instagram, and TikTok. I focus on delivering tangible results, whether that's increased website traffic, higher sales, or stronger brand recognition.
+                    My name is Jajala Srinivasa Rao, and I specialize in creating and managing effective social media advertising campaigns. My mission is to help small businesses and creators like you unlock the full potential of platforms like Facebook, Instagram, and TikTok. I focus on delivering tangible results, whether that's increased website traffic, higher sales, or stronger brand recognition.
                 </p>
                 <p>
                     I believe that great social media ads don't have to be complicated. By focusing on clear goals, creative content, and precise targeting, I can help you reach the right people at the right time, all without breaking your budget.
@@ -57,30 +92,26 @@
         </div>
     </section>
 
-    <!-- Wavy section divider. This adds a unique, modern touch to the design. -->
-    <svg class="w-full h-auto text-gray-50 -mt-px" viewBox="0 0 1440 100" preserveAspectRatio="none">
-        <path fill="currentColor" d="M0,64L48,64C96,64,192,64,288,68.8C384,73.6,480,83.2,576,73.6C672,64,768,35.2,864,25.6C960,16,1056,25.6,1152,38.4C1248,51.2,1344,64,1392,70.4L1440,76.8L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
-    </svg>
-
-    <!-- Services Section -->
+    <!-- The "Services" section. -->
     <section id="services" class="py-16 px-4 bg-gray-50">
         <div class="container mx-auto max-w-6xl">
             <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-12">
                 What I Offer
             </h2>
+            <!-- A grid layout to display the service cards side-by-side on larger screens. -->
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Each div below is a single "card" for a service. -->
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-200 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition-shadow duration-300">
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Campaign Strategy</h3>
                     <p class="text-gray-600">I'll work with you to define your goals, identify your target audience, and build a strategic advertising plan tailored to your business.</p>
                 </div>
                 <!-- Service Card 2 -->
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-200 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition-shadow duration-300">
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Ad Creation & Management</h3>
                     <p class="text-gray-600">From writing compelling ad copy to designing eye-catching visuals, I'll create and manage your ad campaigns from start to finish.</p>
                 </div>
                 <!-- Service Card 3 -->
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-200 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition-shadow duration-300">
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Performance Reporting</h3>
                     <p class="text-gray-600">You'll receive detailed reports and insights on how your campaigns are performing, so you can see the return on your investment.</p>
                 </div>
@@ -88,8 +119,8 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 px-4 bg-gray-900 text-white">
+    <!-- The "Contact" section. -->
+    <section id="contact" class="py-16 px-4 bg-gray-800 text-white">
         <div class="container mx-auto text-center max-w-2xl">
             <h2 class="text-3xl sm:text-4xl font-bold mb-4">
                 Ready to Grow Your Brand?
@@ -97,23 +128,24 @@
             <p class="text-lg font-light mb-8">
                 Let's connect and discuss how social media advertising can help you achieve your goals.
             </p>
-            <div class="flex justify-center space-x-4">
-                <!-- Replace the # with your actual social media links. -->
-                <a href="#" class="bg-teal-500 hover:bg-teal-600 text-white px-8 py-4 rounded-full font-bold transition duration-300 transform hover:-translate-y-1">
-                    <i class="fab fa-facebook-f mr-2"></i> Message on Facebook
+            <div class="mt-8 flex flex-col items-center space-y-4">
+                <p class="text-base sm:text-lg">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Email: <a href="mailto:umasocialmediakmm@gmail.com" class="text-white underline hover:no-underline">umasocialmediakmm@gmail.com</a>
+                </p>
+                <p class="text-base sm:text-lg">
+                    <i class="fas fa-phone mr-2"></i>
+                    Cell: <a href="tel:7670981993" class="text-white underline hover:no-underline">7670981993</a>
+                </p>
+                <a href="https://www.facebook.com/umasocialmediakmm" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-bold transition duration-300 flex items-center">
+                    <i class="fab fa-facebook-f mr-2"></i> Find us on Facebook
                 </a>
-                <a href="#" class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-full font-bold transition duration-300 transform hover:-translate-y-1">
-                    <i class="fab fa-instagram mr-2"></i> Follow on Instagram
-                </a>
-            </div>
-            <div class="mt-8">
-                <p class="text-sm">Or email me directly at: <a href="mailto:contact@example.com" class="text-white underline hover:no-underline">contact@example.com</a></p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-400 py-6 text-center text-sm">
+    <!-- The footer section at the bottom of the page. -->
+    <footer class="bg-gray-900 text-gray-400 py-6 text-center text-sm">
         <p>
             &copy; 2024 Uma Social Media Ads. All Rights Reserved.
         </p>
@@ -123,4 +155,3 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
-
